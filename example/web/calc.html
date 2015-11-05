@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>calculator</title>
+	<script>
+		var num1, num2, calc;
+		var handler = {};
+		var cList = ['+','-','x','/'];
+		num1 = num2 = calc = -1;
+
+		handler.putNum = function(n) {
+			if(calc>=0) {
+				if(num2>=0) {
+					num2 = num2*10+n;
+				} else {
+					num2 = n;
+				}
+				document.getElementById('num').innerHTML = num1+cList[calc]+num2;
+			} else {
+				if(num1>=0) {
+					num1 = num1*10+n;
+				} else {
+					num1 = n;
+				}
+				document.getElementById('num').innerHTML = num1;
+			}
+		};
+
+		handler.putCalc = function(c) {
+			if(num1>=0) {
+				calc = c;
+				document.getElementById('num').innerHTML = num1+cList[calc];
+			}
+		};
+
+		handler.equal = function() {
+			if(num2>=0) {
+				switch(calc) {
+					case 0:
+						num1 = num1+num2;
+						break;
+					case 1:
+						num1 = num1-num2;
+						break;
+					case 2:
+						num1 = num1*num2;
+						break;
+					case 3:
+						num1 = num1/num2;
+						break;
+				}
+				num2 = calc = -1;
+				document.getElementById('num').innerHTML = num1;
+			}
+		};
+
+		handler.clear = function() {
+			num1 = -1;
+			num2 = -1;
+			calc = -1;
+			document.getElementById('num').innerHTML = 0;
+		}
+	</script>
+</head>
+<body style='font-size:500%'>
+	<table border="1" width="200px" height="100px">
+		<tr>
+			<td id="num" colspan="4" align="right">0</td>
+		</tr>
+		<tr align="center">
+			<td onclick="handler.putNum(1)">1</td>
+			<td onclick="handler.putNum(2)">2</td>
+			<td onclick="handler.putNum(3)">3</td>
+			<td onclick="handler.putCalc(0)">+</td>
+		</tr>
+		<tr align="center">
+			<td onclick="handler.putNum(4)">4</td>
+			<td onclick="handler.putNum(5)">5</td>
+			<td onclick="handler.putNum(6)">6</td>
+			<td onclick="handler.putCalc(1)">-</td>
+		</tr>
+		<tr align="center">
+			<td onclick="handler.putNum(7)">7</td>
+			<td onclick="handler.putNum(8)">8</td>
+			<td onclick="handler.putNum(9)">9</td>
+			<td onclick="handler.putCalc(2)">x</td>
+		</tr>
+		<tr align="center">
+			<td onclick="handler.clear()">C</td>
+			<td onclick="handler.putNum(0)">0</td>
+			<td onclick="handler.equal()">=</td>
+			<td onclick="handler.putCalc(3)">/</td>
+		</tr>
+	</table>
+</body>
+</html>
