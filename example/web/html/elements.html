@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Form Elements</title>
+	</head>
+	<body>
+		<form action="http://127.0.0.1:3000" method="post">
+			id:<input type="text" name="id"><br>
+			password:<input type="password" name="password">
+			<hr>
+			radio:
+			<input type="radio" value="1" name="rd"/>one
+			<input type="radio" value="2" name="rd" checked/>two
+			<input type="radio" value="3" name="rd"/>three
+			<hr>
+			char:
+			<input type="checkbox" value="a" name="char"/>a
+			<input type="checkbox" value="b" name="char"/>b
+			<input type="checkbox" value="c" name="char"/>c
+			<hr>
+			num:<input type="number" name="num" min="1" max="10">
+			<hr>
+			day:<input type="date" name="day">
+			<hr>
+			color:<input type="color" name="clr">
+			<hr>
+			range: 0<input type="range" name="rg" min="0" max="100">100
+			<hr>
+			email:<input type="email" name="em">
+			<hr>
+			search:<input type="search" name="srch">
+			<hr>
+			url:<input type="url" name="url">
+			<hr>
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
